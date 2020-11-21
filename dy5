@@ -1,0 +1,32 @@
+#! /bin/bash -x
+companyName="cognizant"
+#randomNumber=$((RANDOM%3))
+read -p "enter Your number " 
+#one=1
+#two=2
+#three=3
+presentMessage="employee Is Present:)"
+fullTimeMessage="This Guy Is Full-time Employee"
+partTimeMessage="This Guy Is Part-time Employee"
+absentMessage="employee Is Absent(:"
+partTimeHourPerDay=2
+fullTimeHourPerDay=8
+estimationCostPerDay=50
+totalAmount=0
+if [ $randomNumber -lt $eight ];
+then
+totalAmount=$((partTimeHourPerday*estimationCostPerDay))
+echo "$companyName $presentMessage"
+echo "$fullTimeMessage"
+echo "your salary as a full-time employee is: $totalAmount"
+elif [ $randomNumber -eq $eight ];
+then
+totalAmout=$((partTimeHourPerDay*estimationCostPerDay))
+echo "$companyName $presentMessage"
+echo "$partTimeMessage"
+echo "your salary as a part-time employee is : $totalAmount"
+else
+echo "$companyName $absentMessage"
+echo "you are absent your salary is:$totalAmount"
+fi
+

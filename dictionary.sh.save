@@ -1,0 +1,76 @@
+#! bin/bash -x
+declare -A User
+AUTHOR="hari"
+settingKey=""
+echo "******ADDRESS BOOK******"
+echo "PLEASE SELECT YOUR CHOICE HERE 1.create 2.Retrieve 3.Update 4.Delete"
+read UserChoice
+echo "your choice==>$UserChoice"
+function userDetails(){
+  User["NAME"]=$1
+  User["AGE"]=$2
+  User["PHN"]=$3
+  echo "YOUR PROFILE IS CREATED :)"
+  echo  "${User[@]}"
+}
+function retrieveUser(){
+   User["NAME"]="any name"
+   User["AGE"]="any age"
+   User["PHN"]="any phn"
+
+   length=${#User[@]}
+   echo "hello==>${User[@]}"
+   if [ $length -eq 0 ]
+   then
+    echo "sorry your profile is empty:("
+   else
+    echo "happy to assist you"
+    echo "your profile"
+    echo "${User[@]}"
+   fi
+
+}
+function updateUserInfo(){
+  if [ $1 -eq 1 ]
+  then
+   settingKey="NAME"
+  elif [ $1 -eq 2 ]
+  then
+   settingKey="AGE"
+  else
+   settingKey="PHN"
+  fi
+
+}
+
+function businesslogic(){
+  echo "WELCOME $2"
+case  $1 in
+1)
+  echo "Hurry! Ready To Create :) "
+  read -p "enter your full name:" fullname
+  read -p "enter your age:" age
+  read -p "enter your mobile number:" phn
+  userDetails $fullname $age $phn
+  ;;
+2)
+ echo "Hurry! Ready To Retrieve :)"
+ retrieveUser
+  ;;
+3)
+  echo "Hurry! Ready To Update:)"
+
+  ;;
+4)
+ echo "Hurry! Ready To Delete:)"
+ echo "which one need to Update"
+ read -p "1.name 2.age 3.phn" updateUserInput
+ updateUserInfo $updateUserInput
+
+  ;;
+*)
+  echo "please enter between 1 and 4"
+  ;;
+esac
+}
+businesslogic $UserChoice $AUTHOR
