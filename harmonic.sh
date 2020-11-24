@@ -6,7 +6,5 @@ for ((  i=1; i<=$n;  ))
 do
  s=$(($s+1/$i))
  i=$(($i+1))
- echo " $i"
 done
 echo $s
-
