@@ -1,14 +1,16 @@
 #! /bin/bash -x
 echo "enter your number"
 read num
-for (( i=2; i<=$num; i++ ))
+for (( i=2; i<=$num;  ))
 do
-if [ $(($num%$i)) -eq 0 ];
+  p=$(($num%$i))
+if [[ $p -ne 0 ]]
 then
-  echo "not prime number : $num"
-else
-    echo " prime"
+  echo " prime number : $num"
+#else
+#  echo "not a prime number :$num"
 fi
+$(($i+1))
 done
 
 

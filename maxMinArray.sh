@@ -8,12 +8,13 @@ do
 done
 echo "${array[@]}"
 echo "${#array[@]}"
-for ${array[i]} in ${array[@]}
+for $randomNum in ${array[@]}
 do
   min=0
   max=0
   (( $i > $max || $max==0)) && $max
   (( $i < $max || $min==0)) && $min
-done
+#done
 echo "$min"
 echo "$max"
+done
